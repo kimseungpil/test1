@@ -191,3 +191,141 @@ Error: no device found for connection 'System venet0'.
 Hint: Some lines were ellipsized, use -l to show in full.
 [root@HE-ALL-SRV MZ0000Z0000000]# 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[root@HE-ALL-SRV ~]# systemctl status network.service -l
+● network.service - LSB: Bring up/down networking
+   Loaded: loaded (/etc/rc.d/init.d/network; bad; vendor preset: disabled)
+   Active: failed (Result: exit-code) since 木 2025-05-08 19:49:30 JST; 1min 25s ago
+     Docs: man:systemd-sysv-generator(8)
+  Process: 3535 ExecStart=/etc/rc.d/init.d/network start (code=exited, status=1/FAILURE)
+
+ 5月 08 19:49:29 HE-ALL-SRV ipv6_wait_tentative[4265]: Waiting for interface enp0s8 IPv6 address(es) to leave the 'tentative' state
+ 5月 08 19:49:30 HE-ALL-SRV NET[4303]: /etc/sysconfig/network-scripts/ifup-post : updated /etc/resolv.conf
+ 5月 08 19:49:30 HE-ALL-SRV network[3535]: [  OK  ]
+ 5月 08 19:49:30 HE-ALL-SRV network[3535]: インターフェース enp0s9 を活性化中:  ERROR     : [/etc/sysconfig/network-scripts/ifup-eth] Error, some other host (0A:00:27:00:00:11) already uses address 10.161.204.246.
+ 5月 08 19:49:30 HE-ALL-SRV /etc/sysconfig/network-scripts/ifup-eth[4343]: Error, some other host (0A:00:27:00:00:11) already uses address 10.161.204.246.
+ 5月 08 19:49:30 HE-ALL-SRV network[3535]: [失敗]
+ 5月 08 19:49:30 HE-ALL-SRV systemd[1]: network.service: control process exited, code=exited status=1
+ 5月 08 19:49:30 HE-ALL-SRV systemd[1]: Failed to start LSB: Bring up/down networking.
+ 5月 08 19:49:30 HE-ALL-SRV systemd[1]: Unit network.service entered failed state.
+ 5月 08 19:49:30 HE-ALL-SRV systemd[1]: network.service failed.
+[root@HE-ALL-SRV ~]# 
+[root@HE-ALL-SRV ~]# 
+[root@HE-ALL-SRV ~]# systemctl status NetworkManeger
+Unit NetworkManeger.service could not be found.
+[root@HE-ALL-SRV ~]# systemctl status NetworkManager
+● NetworkManager.service - Network Manager
+   Loaded: loaded (/usr/lib/systemd/system/NetworkManager.service; disabled; vendor preset: enabled)
+   Active: inactive (dead)
+     Docs: man:NetworkManager(8)
+[root@HE-ALL-SRV ~]# 
+[root@HE-ALL-SRV ~]# 
+[root@HE-ALL-SRV ~]# 
+[r
+
+
+
+
+----
+
+
+
+
+PS C:\Users\smng>
+PS C:\Users\smng> ipconfig /all
+
+Windows IP 構成
+
+   ホスト名. . . . . . . . . . . . . . .: DESKTOP-C3DRR4I
+   プライマリ DNS サフィックス . . . . .:
+   ノード タイプ . . . . . . . . . . . .: ハイブリッド
+   IP ルーティング有効 . . . . . . . . .: いいえ
+   WINS プロキシ有効 . . . . . . . . . .: いいえ
+
+イーサネット アダプター vbox0:
+
+   接続固有の DNS サフィックス . . . . .:
+   説明. . . . . . . . . . . . . . . . .: VirtualBox Host-Only Ethernet Adapter
+   物理アドレス. . . . . . . . . . . . .: 0A-00-27-00-00-11
+   DHCP 有効 . . . . . . . . . . . . . .: いいえ
+   自動構成有効. . . . . . . . . . . . .: はい
+   リンクローカル IPv6 アドレス. . . . .: fe80::c152:dc1a:a4c3:8fea%17(優先)
+   IPv4 アドレス . . . . . . . . . . . .: 10.161.204.246(優先)
+   サブネット マスク . . . . . . . . . .: 255.255.255.0
+   デフォルト ゲートウェイ . . . . . . .:
+   DHCPv6 IAID . . . . . . . . . . . . .: 688521255
+   DHCPv6 クライアント DUID. . . . . . .: 00-01-00-01-2F-9D-DF-77-64-4E-D7-24-18-A7
+   DNS サーバー. . . . . . . . . . . . .: fec0:0:0:ffff::1%1
+                                          fec0:0:0:ffff::2%1
+                                          fec0:0:0:ffff::3%1
+   NetBIOS over TCP/IP . . . . . . . . .: 有効
+
+Wireless LAN adapter Wi-Fi:
+
+   メディアの状態. . . . . . . . . . . .: メディアは接続されていません
+   接続固有の DNS サフィックス . . . . .:
+   説明. . . . . . . . . . . . . . . . .: Realtek 8852CE WiFi 6E PCI-E NIC
+   物理アドレス. . . . . . . . . . . . .: 40-1A-58-78-44-D0
+   DHCP 有効 . . . . . . . . . . . . . .: はい
+   自動構成有効. . . . . . . . . . . . .: はい
+
+Wireless LAN adapter ローカル エリア接続* 1:
+
+   メディアの状態. . . . . . . . . . . .: メディアは接続されていません
+   接続固有の DNS サフィックス . . . . .:
+   説明. . . . . . . . . . . . . . . . .: Microsoft Wi-Fi Direct Virtual Adapter
+   物理アドレス. . . . . . . . . . . . .: 42-1A-58-78-44-D0
+   DHCP 有効 . . . . . . . . . . . . . .: はい
+   自動構成有効. . . . . . . . . . . . .: はい
+
+Wireless LAN adapter ローカル エリア接続* 2:
+
+   メディアの状態. . . . . . . . . . . .: メディアは接続されていません
+   接続固有の DNS サフィックス . . . . .:
+   説明. . . . . . . . . . . . . . . . .: Microsoft Wi-Fi Direct Virtual Adapter #2
+   物理アドレス. . . . . . . . . . . . .: C2-1A-58-78-44-D0
+   DHCP 有効 . . . . . . . . . . . . . .: はい
+   自動構成有効. . . . . . . . . . . . .: はい
+
+イーサネット アダプター イーサネット:
+
+   接続固有の DNS サフィックス . . . . .:
+   説明. . . . . . . . . . . . . . . . .: Realtek PCIe GbE Family Controller
+   物理アドレス. . . . . . . . . . . . .: 64-4E-D7-24-18-A7
+   DHCP 有効 . . . . . . . . . . . . . .: はい
+   自動構成有効. . . . . . . . . . . . .: はい
+   IPv6 アドレス . . . . . . . . . . . .: fd00::8000:2049:0:b531(優先)
+   リンクローカル IPv6 アドレス. . . . .: fe80::bad0:a90e:a289:3adf%10(優先)
+   デフォルト ゲートウェイ . . . . . . .:
+   DNS サーバー. . . . . . . . . . . . .: fec0:0:0:ffff::1%1
+                                          fec0:0:0:ffff::2%1
+                                          fec0:0:0:ffff::3%1
+   NetBIOS over TCP/IP . . . . . . . . .: 無効
+
+イーサネット アダプター Bluetooth ネットワーク接続:
+
+   メディアの状態. . . . . . . . . . . .: メディアは接続されていません
+   接続固有の DNS サフィックス . . . . .:
+   説明. . . . . . . . . . . . . . . . .: Bluetooth Device (Personal Area Network)
+   物理アドレス. . . . . . . . . . . . .: 40-1A-58-78-44-D1
+   DHCP 有効 . . . . . . . . . . . . . .: はい
+   自動構成有効. . . . . . . . . . . . .: はい
+PS C:\Users\smng>
+
