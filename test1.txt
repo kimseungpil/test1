@@ -1,1 +1,29 @@
-sssss
+sqlplus / as sysdba
+
+SELECT * FROM DBA_DIRECTORIES WHERE DIRECTORY_NAME = 'DATA_PUMP_DIR';
+CREATE OR REPLACE DIRECTORY DATA_PUMP_DIR AS '/oracle/app/oracle/admin/DCS/dpdump/';
+GRANT read, write ON DIRECTORY DATA_PUMP_DIR TO security;
+
+expdp SECURITY/security@10.161.204.246:1521/DCS schemas=security directory=DATA_PUMP_DIR dumpfile=security_b541_bk.dmp logfile=security_b541_bk_dump.log
+
+
+
+sqlplus / as sysdba
+
+SELECT * FROM DBA_DIRECTORIES WHERE DIRECTORY_NAME = 'DATA_PUMP_DIR';
+CREATE OR REPLACE DIRECTORY DATA_PUMP_DIR AS '/oracle/app/oracle/admin/DCS/dpdump/';
+GRANT read, write ON DIRECTORY DATA_PUMP_DIR TO dpsrv;
+
+expdp DPSRV/dpsrv@10.161.204.246:1521/DCS schemas=dpsrv directory=DATA_PUMP_DIR dumpfile=dpsrv_b541_bk.dmp logfile=dpsrv_b541_bk_dump.log
+
+expdp DPSRV/dpsrv@10.161.204.246:1521/DCS schemas=dpsrv directory=DATA_PUMP_DIR dumpfile=dpsrv_b551_bk.dmp logfile=dpsrv_b551_bk_dump.log
+
+
+
+
+S_NAP_DEVICE
+
+
+impdp DPSRV/dpsrv@10.161.204.246:1521/DCS schemas=dpsrv directory=DATA_PUMP_DIR dumpfile=dpsrv_b551_bk.dmp logfile=dpsrv_b551_bk_import.log TABLE_EXISTS_ACTION=REPLACE
+impdp SECURITY/security@10.161.204.246:1521/DCS schemas=security directory=DATA_PUMP_DIR dumpfile=security_b551_bk.dmp logfile=security_b551_bk_import.log TABLE_EXISTS_ACTION=REPLACE
+ 
