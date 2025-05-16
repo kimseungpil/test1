@@ -2,3 +2,86 @@
 長沼 ながぬま
 日本テクニカル・サービス株式会社
 技研電子株式会社
+
+
+
+10.161.204.0/24 dev enp0s3 proto kernel scope link src 10.161.204.245 metric 102 
+10.161.246.1 dev enp0s3 proto static scope link metric 102 
+
+--------------
+
+nmcli connection modify "NAT enp0s3" -ipv4.gateway "10.161.204.0/24"
+
+
+
+nmcli c m "NAT enp0s3" -ipv4.addresses "10.161.204.246/24"
+nmcli c m "NAT enp0s3" -ipv4.addresses "10.161.204.245/24"
+
+
+
+
+
+nmcli c m "NAT enp0s3" ipv6.method manual ipv6.addresses "fd00:0000:0000:0000:8000:2049:0000:d531/64"
+
+
+nmcli c m "NAT enp0s3" ipv6.method manual +ipv6.addresses "fd00:0000:0000:0000:8000:2049:0000:d532/64"
+
+
+
+nmcli connection modify "NAT enp0s3" ipv6.gateway "fd00:0000:0000:0000:8000:2049:0000:b531"
+
+
+
+nmcli connection modify "NAT enp0s3" +ipv6.routes "2001:0268:1a96::/48 fd00::1"
+
+
+nmcli c d "NAT enp0s3"
+nmcli c u "NAT enp0s3"
+
+
+
+
+
+nmcli connection modify "enp0s8" ipv6.gateway "fd00:0000:0000:0000:8000:2049:0000:b531"
+
+
+nmcli c d "enp0s8"
+nmcli c u "enp0s8"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+nmcli c m "NAT enp0s3" +ipv6.routes "fd6f:6f69:0002::/48 fd6f:6f69:2000:0000:0000:0000:0000:0001"
+
+
+nmcli c m "NAT enp0s3" +ipv6.routes "2001:0268:1a96::/48 via fd00::1 dev enp0s3"
+
+
+nmcli connection modify "NAT enp0s3" +ipv6.routes "2001:0268:1a96::/48 via fd00::1 dev enp0s3"
+
+nmcli connection modify enp0s3 +ipv6.routes "2001:0268:1a96::/48 via fd00::1 dev enp0s3"
+
+nmcli connection modify "NAT enp0s3" +ipv6.routes "2001:0268:1a96::/48 fd00::1"
+
+nmcli connection modify enp0s3 +ipv6.routes "2001:0268:1a96::/48  fd00::1 "
+
+
+
