@@ -1,3 +1,7 @@
+sunpiru_kimu@ooielec.onmicrosoft.com
+
+
+
 welcome to korea.
 i like people.
 you luck.
